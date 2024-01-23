@@ -88,7 +88,7 @@
 
 
 
-
+'use strict'; // to prevent us from overwriting important variables
 import BarChart from './barchart.js';
 
 let cities = [
