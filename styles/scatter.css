@@ -1,0 +1,9 @@
+svg.scatter {
+    border: solid 1px #333;
+    }
+
+svg.scatter circle.dot{
+    fill: #b30606;
+    stroke: #003C71;
+    stroke-width: 2px;
+}

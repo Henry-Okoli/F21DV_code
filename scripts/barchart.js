@@ -16,7 +16,7 @@
             .classed('barchart', true)
             .attr('width', this.width)
             .attr('height', this.height);
-
+        
         this.chart = this.svg.append('g')
             .attr('transform',
                 `translate(${this.margin[2]}, ${this.margin[0]})`);

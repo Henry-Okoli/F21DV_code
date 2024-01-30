@@ -90,6 +90,7 @@
 
 'use strict'; // to prevent us from overwriting important variables
 import BarChart from './barchart.js';
+import ScatterPlot from './ScatterPlot.js'
 
 let cities = [
     {city: 'Edinburgh', pop: 506000, area: 119, alt: 47},
@@ -99,9 +100,18 @@ let cities = [
     {city: 'Lagos', pop: 8048000, area: 1171, alt: 41},
     {city: 'Ottawa', pop: 1017000, area: 2790, alt: 70}
  ]
+ let scatter1 = new ScatterPlot('div#scatter1', 700, 500, [10,40,45,20]);
+// this line transforms the cities dataset in the generic format
+// that BarChart expects: [[k, v], ...]
+// we will explain it further in the next lab
+
 let bar1 = new BarChart('div#bar1', 700, 500, [10,40,45,20]);
 // this line transforms the cities dataset in the generic format
 // that BarChart expects: [[k, v], ...]
 // we will explain it further in the next lab
+
 let citiesElevation = cities.map(d=>[d.city, d.alt]);
 bar1.render(citiesElevation);
+
+let citiesPopArea = cities.map(d=>[d.pop, d.area]);
+scatter1.render(citiesPopArea)
