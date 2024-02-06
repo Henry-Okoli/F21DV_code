@@ -89,8 +89,8 @@
 
 
 'use strict'; // to prevent us from overwriting important variables
-import BarChart from './barchart.js';
-import ScatterPlot from './ScatterPlot.js'
+import BarChart from './Visualization/barchart.js';
+import ScatterPlot from './Visualization/ScatterPlot.js'
 
 let cities = [
     {city: 'Edinburgh', pop: 506000, area: 119, alt: 47},

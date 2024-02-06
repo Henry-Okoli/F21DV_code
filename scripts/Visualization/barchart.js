@@ -10,30 +10,24 @@
         this.width = width;
         this.height = height;
         this.margin = margin;
-        
-        this.svg = d3.select(container)
-            .append('svg')
+        this.svg = d3.select(container).append('svg')
             .classed('barchart', true)
-            .attr('width', this.width)
-            .attr('height', this.height);
-        
-        this.chart = this.svg.append('g')
-            .attr('transform',
-                `translate(${this.margin[2]}, ${this.margin[0]})`);
-        this.bars = this.chart.selectAll('rect.bar');// Initialize empty selection
-       
+            .attr('width', this.width).attr('height', this.height);
+
+        // this.chart = this.svg.append('g')
+        //     .attr('transform',`translate(${this.margin[2]}, ${this.margin[0]})`);
+        // this.bars = this.chart.selectAll('rect.bar');// Initialize empty selection
+
         // to display axis in the chart
         this.chart = this.svg.append('g')
-            .attr('transform',
-            `translate(${this.margin[2]},${this.margin[0]})`);
+            .attr('transform',`translate(${this.margin[2]},${this.margin[0]})`);
         this.bars = this.chart.selectAll('rect.bar');
         
         this.axisX = this.svg.append('g')
-            .attr('transform',
-            `translate(${this.margin[2]},${this.height-this.margin[1]})`);
+            .attr('transform',`translate(${this.margin[2]},${this.height-this.margin[1]})`);
         this.axisY = this.svg.append('g')
-            .attr('transform',
-            `translate(${this.margin[2]},${this.margin[0]})`);
+            .attr('transform',`translate(${this.margin[2]},${this.margin[0]})`);
+       
         this.labelX = this.svg.append('text')
             .attr('transform', `translate(${this.width/2},${this.height})`)
             .style('text-anchor', 'middle').attr('dy',-5);
@@ -43,8 +37,8 @@
     }
 
 
+    // private methods
     // Implement Scale
-    // 
     #updateScales(){
         let chartWidth = this.width-this.margin[2]-this.margin[3],
             chartHeight = this.height-this.margin[0]-this.margin[1];
@@ -63,11 +57,11 @@
         this.axisX.call(axisGenX);
         this.axisY.call(axisGenY);
     }
-    // Private methods
+
     // data is in the format [[key,value],...]
     #updateBars(){
-        this.bars = this.chart.selectAll('rect.bar') // Re-select to include new data-bound bars
-        // this.bars = this.bars
+        // this.bars = this.chart.selectAll('rect.bar') // Re-select to include new data-bound bars
+        this.bars = this.bars
             .data(this.data, d=>d[0])
             .join('rect')
             .classed('bar', true)  

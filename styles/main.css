@@ -1,6 +1,6 @@
-@import 'vars.css';
-@import 'barchart.css';
-@import 'Scatter.css';
+@import './Visualization/vars.css';
+@import './Visualization/barchart.css';
+@import './Visualization/Scatter.css';
 
 
 h1{
